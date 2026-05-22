@@ -1,0 +1,16 @@
+# NUMERO QUE DEBE ADIVINAR #
+
+numero_secreto = 7
+primera_oportunidad = int(input("¡Ingresa tu primer intento AQUI! "))
+
+# BUCLE #
+while primera_oportunidad != numero_secreto:
+    
+    print("¡CERCA! casi aciertas, pero ¡Intentalo de nuevo!")
+    
+    intentos_del_usuario = int(input("¡Ingresa tu numero para aganar AQUI! "))
+
+    if intentos_del_usuario == numero_secreto:
+        print("¡ADIVINASTE, ERES EL GANADOR!")
+        break
+    

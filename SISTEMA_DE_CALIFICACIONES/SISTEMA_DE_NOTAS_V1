@@ -1,0 +1,46 @@
+# ------ SISTEMA DE CALIFICACIONES ------ #
+
+# BASE DE DATOS #
+limite_minimo_calificacion = 1
+limite_maximo_calificacion = 100
+validacion_de_limites = 0
+calificacion = validacion_de_limites
+validacion_de_calificacion = False
+
+# BUCLE #
+while True:
+
+# INGRESO DE NOTAS #    
+    calificacion = int(input("¡Ingresa tu nota, aqui! "))
+
+# CALIFICACION DE NOTAS #
+
+    if calificacion < limite_minimo_calificacion or calificacion > limite_maximo_calificacion:
+        print("Calificacion incorrecta, vuelve a ingresar la nota")
+
+    elif calificacion >= 1 and calificacion <= 59:
+        print("¡Reprobaste!")
+        validacion_de_calificacion = True
+
+    elif calificacion >= 60 and calificacion <= 79:
+        print("¡Pasaste!, pero debes mejorar")
+        validacion_de_calificacion = True
+
+    elif calificacion >= 80 and calificacion <= 89:
+        print("¡Que bueno aprobaste!, buen trabajo")
+        validacion_de_calificacion = True
+
+    elif calificacion >= 90 and calificacion <= 100:
+        print("¡Excelente!, eres de los mejores sigue asi, felicidades.")
+        validacion_de_calificacion = True
+
+# FIN DEL BUCLE #
+
+    if validacion_de_calificacion == True:
+        print("Esa es tu calificacion")
+        break
+
+
+
+
+
