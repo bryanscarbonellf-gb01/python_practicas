@@ -1,0 +1,66 @@
+# ---------- ****** SISTEMA DE CALIFICACIONES PARA UN ESTUDIANTE ****** ---------- #
+
+# ---------- FLUJO DEL SISTEMA ---------- #
+
+# 1. Pedir nombre
+# 2. Preguntar cuántas notas ingresará
+# 3. Pedir cada nota
+# 4. Validar notas
+# 5. Acumular suma
+# 6. Calcular promedio
+# 7. Mostrar resultado final
+
+# FASE 1:
+
+# --- Sistema para UNA materia --- #
+# pedir nombre,
+# pedir cuántas notas tiene,
+# ingresar notas,
+# sacar promedio,
+# decir si aprobó
+
+# BASE DE DATOS #
+
+estudiante = ""
+cantidad_de_notas = 0
+suma_notas = 0
+
+# ESTUDIANTES #
+
+estudiante = input("¡Ingresa tu nombre! ")
+
+# CANTIDAD DE NOTAS #
+
+cantidad_de_notas = int(input("¿Cuantas notas deseas ingresar? "))
+
+# NOTA POR EXAMEN #
+for nota in range(cantidad_de_notas):
+
+    nota = int(input("¡Ingresa tu nota! "))
+
+    suma_notas = nota + suma_notas
+
+    promedio_materia = suma_notas / cantidad_de_notas
+
+# RESULTADO DEL PROMEDIO #
+print(estudiante, "¡Este es tu promedio!", round(promedio_materia, 2))
+
+# CONDICIONES PARA APROBAR O RE-PROBAR #
+
+if promedio_materia <= 49:
+    print("¡Reprobaste la materia!")
+    
+elif promedio_materia >= 50 and promedio_materia <= 79:
+    print("¡Aprobaste!, puedes hacerlo mejor")
+
+elif promedio_materia >= 80 and promedio_materia <= 90:
+    print("¡Aprobaste!, que buen trabajo")
+
+elif promedio_materia >= 91 and promedio_materia <= 100:
+    print("¡Aprobaste!, excelente trabajo, felicidades")
+
+        
+        
+
+
+    
