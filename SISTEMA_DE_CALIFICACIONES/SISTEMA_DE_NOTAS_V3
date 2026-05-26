@@ -1,0 +1,131 @@
+# ---------- ****** SISTEMA DE CALIFICACIONES PARA EL PROFESOR ****** ------ #
+
+# ---------- FLUJO DEL SISTEMA ---------- #
+
+# fase 1
+
+# OBJETIVO: *** identificar quién está usando el sistema ***
+
+# 1. Pedir nombre del profesor
+# 2. Pedir nombre de la materia
+# 3. Mostrar bienvenida
+
+# DESARROLLO #
+
+# BASE DE DATOS #
+
+profesor = ""
+materia = ""
+
+# ENTRADA DE DATOS #
+
+profesor = input("¿Nombre del profesor? ")
+print(f"¡Bienvenido profesor! {profesor}")
+materia = input("¿Que materia desea ingresar? ")
+print(f"¡Profesor {profesor} su materia {materia} quedo ingresada correctamente!")
+
+
+# FASE 2
+
+# OBJETIVO: ***  guardar varios estudiantes ***
+
+# 1. Preguntar cuántos estudiantes hay
+# 2. Crear lista vacía
+# 3. Usar for
+# 4. Guardar nombres con append()
+# 5. Mostrar lista final
+
+# BASE DA DATOS 02 #
+
+cantidad_de_estudiantes = 0
+estudiantes = []
+# ENTRADA DE DATOS 02 #
+
+cantidad_de_estudiantes = int(input(f"Profesor {profesor} ¿Cuantos estudiantes desea ingresar? "))
+
+# BUCLE 01 ESTUDIANTES #
+
+for estudiante in range(cantidad_de_estudiantes):
+    
+    nombre_del_estudiante = ""
+
+    nombre_del_estudiante = input(F"Profesor {profesor} ¡Ingrese el nombre del estudiante! ")
+    
+    notas_del_estudiante = []
+
+    cantidad_de_notas_del_estudiante = 0
+
+    cantidad_de_notas_del_estudiante = int(input(f"Profesor {profesor}, ¿cuantas notas del estudiante {nombre_del_estudiante} desea ingresar?: "))
+
+
+# FASE 3
+
+# OBJETIVO: *** guardar notas de cada estudiante ***
+
+# 1. Elegir estudiante
+# 2. Preguntar cuántas notas tendrá
+# 3. Pedir cada nota
+# 4. Guardarlas en lista
+# 5. Mostrar notas guardadas
+
+# BUCLES 02 NOTAS #
+
+    for notas in range(cantidad_de_notas_del_estudiante):
+
+        tipo_de_nota = ""
+
+        tipo_de_nota = input(f"Profesor {profesor}, ¿Que tipo de nota es?: ")
+        
+        valor_nota =  int(input(f"Profesor ingrese la nota de {tipo_de_nota} para {nombre_del_estudiante}: "))
+        
+        notas_del_estudiante.append([tipo_de_nota, valor_nota])
+    estudiantes.append([nombre_del_estudiante, notas_del_estudiante])
+
+
+# FASE 4 
+
+# OBJETIVO: *** trabajar las notas *** 
+
+# 1. recorrer estudiantes
+# 2. sumar notas
+# 3. calcular promedio
+# 4. mostrar promedio
+# 5. mostrar aprobado/reprobado
+
+# BASE DE DATOS 03 #
+
+promedios_de_estudiantes = []
+
+# BUCLE PROMEDIOS NOTAS #
+
+for estudiante in estudiantes:
+    
+    suma = 0
+
+    for nota in estudiante[1]:
+        
+        suma = suma + nota[1]
+        
+    promedio = suma / len(estudiante[1]) 
+
+    promedios_de_estudiantes.append([estudiante[0], materia, round(promedio)])
+
+    if promedio >= 1 and promedio <= 50:
+        print(f"{estudiante[0]} tu promedio es de: {promedio} ¡Reprobaste! ")
+
+    elif promedio >= 51 and promedio <= 85:
+        print(f"{estudiante[0]} tu promedio es de: {promedio} ¡Aprobaste!, pero puedes mejorar1")
+
+    elif promedio >= 86 and promedio <= 100:
+        print(f"{estudiante[0]} tu promedio es de: {promedio} ¡Aprobaste!, excelente trabajo, ¡FELICIDADES!")
+
+
+# FASE 5
+
+# OBJETIVO: *** mostrar análisis final ***
+
+# 1. nota mayor
+# 2. nota menor
+# 3. estudiante destacado
+# 4. promedio general
+# 5. reportes
