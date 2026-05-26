@@ -1,0 +1,72 @@
+# ---------- ****** ADIVINA EL NUMERO V3 ****** ---------- #
+
+# OBJETIVO:
+# 1. Numero aleatorio
+# 2. Nivel 1 -> rango 1 al 50
+# 3. Contador de intentos
+# 4. Maximo de vidas
+# 5. Mensaje de derrota
+
+# HERRAMIENTAS LIBRERIAS #
+
+import random
+
+# BASE DE DATOS INTENTOS DEL JUGADOR #
+numero_secreto = random.randint(1, 50)
+respuesta_del_jugador = 0
+suma_de_intentos_del_jugador = 0
+vida_del_jugador = 3
+nombre_del_jugador = ""
+
+# ENTRADA DE DATO 01 #
+
+nombre_del_jugador = input("¿Como te llamas?: ")
+
+# BUCLE INTENTOS #
+
+while suma_de_intentos_del_jugador <= vida_del_jugador:
+
+# ENTRADA DE DATO 02 #
+     
+    respuesta_del_jugador = int(input(f"¿{nombre_del_jugador} Cual es tu numero?: "))
+
+# CONTADOR #
+
+    suma_de_intentos_del_jugador += 1
+
+# CONDICIONALES #
+
+    if respuesta_del_jugador < numero_secreto:
+        print(f"{nombre_del_jugador} ¡Casi! te alejaste, sube un poco mas.")
+
+    elif respuesta_del_jugador > numero_secreto:
+        print(f"{nombre_del_jugador} ¡Muy alto! te pasaste, baja un poco.")
+
+    elif respuesta_del_jugador == numero_secreto:
+        print(f"{nombre_del_jugador} ¡GANASTE!, Felicidades.")
+        break 
+
+else:
+    suma_de_intentos_del_jugador > vida_del_jugador
+    print(f"{nombre_del_jugador} ¡GAME OVER!, Mas suerte la proxima")
+
+
+# SE LOGRO CON LA V3 #
+
+# while
+# if / elif / else
+# contadores
+# comparación de números
+# variables de estado
+# flujo del programa
+# break
+# inputs
+# librerías (import random)
+# número aleatorio
+# lógica de derrota
+# lógica de victoria
+# organización visual del código
+# separación por fases    
+            
+
+    
