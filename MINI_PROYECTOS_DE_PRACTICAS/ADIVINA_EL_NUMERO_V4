@@ -1,0 +1,191 @@
+# ---------- ****** ADIVINA EL NÚMERO V4 ****** ---------- #
+
+# Crear un juego más escalable usando:
+
+# menú
+# dificultad
+# reinicio de partida
+# contador de victorias
+# ver porque son necesarias las funciones
+
+# FASE 1  PRESENTACIÓN #
+
+# Objetivo
+
+# Mostrar bienvenida y nombre del jugador. #
+
+# LIBRERIAS #
+
+import random
+
+# MENSAJE DE BIENVENIDA #
+
+print("¡Bienvenido al juego ADIVINA EL NUMERO!")
+
+# DATOS DE ENTRADA #
+nombre_del_jugador = ""
+nombre_del_jugador = input("¿Cual es tu nombre?: ")
+
+# BASE DE DATOS PRINCIPALES NO TEMPORALES #
+numero_secreto_nivel_01 = random.randint(1, 60)
+numero_secreto_nivel_02 = random.randint(61, 180)
+numero_secreto_nivel_03 = random.randint(121, 300)
+vidas_del_jugador_nivel_01 = 3
+vidas_del_jugador_nivel_02 = 8
+vidas_del_jugador_nivel_03 = 12
+
+
+# FASE 2  MENÚ #
+
+# Objetivo:
+# Dar opciones al jugador.
+
+# DICCIONARIOS #
+estadisticas = {}
+estadisticas.update({"jugador": nombre_del_jugador}) 
+
+# BUCLE PRINCIPAL #
+while True:
+
+# BASE DE DATOS 01 #
+    jugar = 1
+    revisar_victorias = 2
+    salir = 3    
+
+
+# BASE DE DATOS 02 TEMPORALES #
+    
+    suma_de_intentos_del_jugador_nivel_01 = 0
+    suma_de_intentos_del_jugador_nivel_02 = 0
+    suma_de_intentos_del_jugador_nivel_03 = 0
+    respuesta_del_jugador_nivel_01 = 0
+    respuesta_del_jugador_nivel_02 = 0
+    respuesta_del_jugador_nivel_03 = 0
+    gano_el_jugador_nivel_01 = False
+    gano_el_jugador_nivel_02 = False
+    gano_el_jugador_nivel_03 = False
+    perdio_el_jugador_nivel_01 = False
+    perdio_el_jugador_nivel_02 = False
+    perdio_el_jugador_nivel_03 = False
+    suma_de_turnos_ganados = 0
+    suma_de_partidas_perdidas = 0
+
+
+# MENU #
+
+    print("*** MENU ***")
+    print("1. Jugar")
+    print("2. Revisar estadisticas")
+    print("3. Salir")
+
+# ENTRADA PARA EL MENU #
+
+    menu = int(input(f"¿Que opcion del menu desea usar {nombre_del_jugador}?: "))
+
+# CONDICIONAL 01 DEL MENU #
+    
+    if menu == 1:
+
+# BUCLE INTENTOS DEL JUEGO #
+
+        while suma_de_intentos_del_jugador_nivel_01 <= vidas_del_jugador_nivel_01:
+
+# ENTRADA INTENTOS DEL JUEGO #
+
+            print("NIVEL 01")
+            respuesta_del_jugador_nivel_01 = int(input(f"{nombre_del_jugador} ¿Cual es tu numero?: "))
+
+# CONTADOR DE INTENTOS DEL JUEGO #
+
+            suma_de_intentos_del_jugador_nivel_01 += 1
+
+# CONDICIONALES INTENTOS DEL JUGADOR NIVEL 01 #
+
+            if suma_de_intentos_del_jugador_nivel_01 >= vidas_del_jugador_nivel_01:
+                print(f"¡GAME OVER! {nombre_del_jugador}")     
+                print("¡Vuelve a iniciar una partida!")
+                suma_de_partidas_perdidas += 1                
+                perdio_el_jugador_nivel_01 = not perdio_el_jugador_nivel_01
+                estadisticas.update({"partidas_perdidas": suma_de_partidas_perdidas})
+                break
+            elif respuesta_del_jugador_nivel_01 > numero_secreto_nivel_01:
+                print(F"{nombre_del_jugador} ¡Casi! te pasaste, dale un poco mas abajo")
+            elif respuesta_del_jugador_nivel_01 < numero_secreto_nivel_01:
+                print(f"{nombre_del_jugador} ¡Casi! muy bajito, sube un poco mas")
+            elif respuesta_del_jugador_nivel_01 == numero_secreto_nivel_01:
+                print(f"{nombre_del_jugador}¡GANASTE! felicidades, acertaste el numero")
+                print(f"{nombre_del_jugador} ¡Pasaste al nivel 2!")
+                gano_el_jugador_nivel_01 = not gano_el_jugador_nivel_01
+                suma_de_turnos_ganados += 1                
+                estadisticas.update({"nivel_maximo": suma_de_turnos_ganados})
+                estadisticas.update({"turnos_ganados": suma_de_turnos_ganados})
+                break 
+# BUCLE NIVEL 02 DEL JUEGO #                   
+        while gano_el_jugador_nivel_01:
+                
+            print("NIVEL 02")
+            respuesta_del_jugador_nivel_02 = int(input(f"{nombre_del_jugador} ¿Cual es tu numero?: "))
+
+            suma_de_intentos_del_jugador_nivel_02 += 1
+
+# CONDICIONALES INTENTOS DEL JUGADOR NIVEL 02 #
+
+            if suma_de_intentos_del_jugador_nivel_02 >= vidas_del_jugador_nivel_02:
+                print(f"¡GAME OVER! {nombre_del_jugador}")     
+                print("¡Vuelve a iniciar una partida!")
+                suma_de_partidas_perdidas += 1                    
+                perdio_el_jugador_nivel_02 = not perdio_el_jugador_nivel_02
+                estadisticas.update({"partidas_perdidas": suma_de_partidas_perdidas})
+                break                                        
+            elif respuesta_del_jugador_nivel_02 > numero_secreto_nivel_02:
+                print(F"{nombre_del_jugador} ¡Casi! te pasaste, dale un poco mas abajo")
+            elif respuesta_del_jugador_nivel_02 < numero_secreto_nivel_02:
+                print(f"{nombre_del_jugador} ¡Casi! muy bajito, sube un poco mas")
+            elif respuesta_del_jugador_nivel_02 == numero_secreto_nivel_02:
+                print(f"{nombre_del_jugador}¡GANASTE! felicidades, acertaste el numero")
+                print(f"{nombre_del_jugador} ¡Pasaste al nivel 3!")
+                suma_de_turnos_ganados += 1                    
+                gano_el_jugador_nivel_02 = not gano_el_jugador_nivel_02                                    
+                estadisticas.update({"nivel_maximo": suma_de_turnos_ganados})
+                estadisticas.update({"partidas_ganadas": suma_de_turnos_ganados})
+                break
+# BUCLE NIVEL 03 DEL JUEGO #
+
+        while gano_el_jugador_nivel_02:
+
+            print("NIVEL 03")
+            respuesta_del_jugador_nivel_03 = int(input(f"{nombre_del_jugador} ¿Cual es tu numero?: "))
+
+            suma_de_intentos_del_jugador_nivel_03 += 1
+
+# CONDICIONALES INTENTOS DEL JUGADOR NIVEL 03 #                        
+
+            if suma_de_intentos_del_jugador_nivel_03 >= vidas_del_jugador_nivel_03:    
+                print(f"¡GAME OVER! {nombre_del_jugador}")
+                print("¡Vuelve a iniciar una partida!")
+                perdio_el_jugador_nivel_03 = not perdio_el_jugador_nivel_03
+                suma_de_partidas_perdidas += 1
+                estadisticas.update({"partidas_perdidos": suma_de_partidas_perdidas})
+                break
+            elif respuesta_del_jugador_nivel_03 > numero_secreto_nivel_03:
+                print(F"{nombre_del_jugador} ¡Casi! te pasaste, dale un poco mas abajo")    
+            elif respuesta_del_jugador_nivel_03 < numero_secreto_nivel_03:
+                print(f"{nombre_del_jugador} ¡Casi! muy bajito, sube un poco mas")
+            elif respuesta_del_jugador_nivel_03 == numero_secreto_nivel_03:
+                print(f"{nombre_del_jugador}¡GANASTE! felicidades, acertaste el numero")
+                print(f"{nombre_del_jugador} ¡FIN DEL JUEGO!")
+                suma_de_turnos_ganados += 1
+                gano_el_jugador_nivel_03 = not gano_el_jugador_nivel_03
+                estadisticas.update({"nivel_maximo": suma_de_turnos_ganados})
+                estadisticas.update({"turnos_ganados": suma_de_turnos_ganados})
+                break        
+    elif menu == 2:
+            for key, values in estadisticas.items():
+                print(f"Estas son las estadisticas del juego: {key} {values}")
+    
+            
+    elif menu == 3:
+        print(f"{nombre_del_jugador} ¡Gracias por jugar ADIVINA EL NUMERO")  
+        print("¡Has salido con exito!")
+        break      
+
