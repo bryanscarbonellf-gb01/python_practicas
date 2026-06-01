@@ -118,14 +118,3 @@ for estudiante in estudiantes:
 
     elif promedio >= 86 and promedio <= 100:
         print(f"{estudiante[0]} tu promedio es de: {promedio} ¡Aprobaste!, excelente trabajo, ¡FELICIDADES!")
-
-
-# FASE 5
-
-# OBJETIVO: *** mostrar análisis final ***
-
-# 1. nota mayor
-# 2. nota menor
-# 3. estudiante destacado
-# 4. promedio general
-# 5. reportes

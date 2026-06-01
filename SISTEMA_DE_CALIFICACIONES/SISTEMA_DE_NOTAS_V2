@@ -58,9 +58,3 @@ elif promedio_materia >= 80 and promedio_materia <= 90:
 
 elif promedio_materia >= 91 and promedio_materia <= 100:
     print("¡Aprobaste!, excelente trabajo, felicidades")
-
-        
-        
-
-
-    

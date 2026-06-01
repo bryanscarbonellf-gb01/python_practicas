@@ -1,0 +1,269 @@
+# ========================================================= #
+# ====== SISTEMA DE INVENTARIO PARA TIENDA DE SUPLEMENTOS V1====== #
+# ========================================================= #
+
+# FLUJO DEL SISTEMA
+
+# FASE 1
+# OBJETIVO: Crear la estructura principal del sistema.
+
+# 1. Crear inventario vacío.
+# 2. Crear menú principal.
+# 3. Crear while True.
+# 4. Crear opción salir.
+# 5. Validar opciones del menú.
+
+# RESULTADO ESPERADO DE MENU:
+#
+# 1. Crear categoría
+# 2. Ver categorías
+# 3. Agregar producto
+# 4. Salir
+# === CATEGORÍAS === #
+
+# 1. Ver categorías existentes
+# 2. Ver productos de una categoría
+# 3. Volver
+
+# El sistema navega correctamente.
+
+# BASE DE DATOS 01 #
+Inventario = {}
+Producto = {}
+Usuario = ""
+
+# OPCIONES DEL MENU PRINCIPAL#
+Crear_categorias = 1
+Ver_categorias = 2
+Salir = 3
+
+# OPCIONES DEL MENU DE CATEGORIAS #
+Ver_cartegorias_existentes = 1
+Ver_productos_de_una_categoria = 2
+Volver = 3
+
+# OPCIONES DE TOMA DE DESICIONES #
+Si = 1
+No = 2
+
+# MENSAJE DE BIENVENIDA #
+print("Bienvenido al sistema de inventarios TRON")
+
+# ENTRDA DE NOMBRE USUARO #
+Usuario = input("¿Quien esta usando el programa?: ")
+
+# BUCLE WHILE PRINCIPAL #
+while True:
+
+#   MENU PRINCIPAL #
+    print("********************************")
+    print("* ¡Bienvenido al MENU de TRON! *")
+    print("********************************")
+    print("* 1. Crear categoría           *")
+    print("* 2. Ver categorías            *")
+    print("* 3. Salir                     *")
+    print("********************************")
+
+#   ENTRADA DE DATOS DEL MENU #
+    Menu = int(input(f"{Usuario} ¿Cual opcion del menu necesitas?: "))
+# ========================================================= #
+
+# FASE 2
+# OBJETIVO: Crear categorías dinámicamente.
+
+# 1. Crear categoría.
+# 2. Guardar categoría dentro del inventario.
+# 3. Mostrar confirmación.
+
+# RESULTADO ESPERADO:
+#
+# Categoría creada:
+# Creatinas
+#
+# Categoría creada:
+# Proteínas
+#
+# Categoría creada:
+# Vitaminas
+
+
+#   CONDICIONALES BUCLE PRINCIPAL    
+    if Menu == Crear_categorias:
+        print("¡ESTAS EN CREAR CATEGORIAS")
+        Registro_categoria = input("¿Cual es tu categoria?: ")
+        print(f"{Usuario} ¡Tu categoria {Registro_categoria} ha sido ingresado con extio!")
+        Inventario[Registro_categoria] = []
+
+#       BUCLE REGISTRO CATEGORIA #
+        while True:
+            print("¡ESTAS EN CREAR CATEGORIAS ZONA 2")
+#           RESPUESTA DE CATEGORIAS # 
+            print(f"{Usuario} ¿Deseas crear otra categoria?")
+            print("1. Si")
+            print("2. No")
+            Respuesta_categoria_01 = int(input(f"{Usuario} ¿cual es tu respuesta?: "))
+                   
+
+            if Respuesta_categoria_01 == Si:
+                Registro_categoria_03 = input("¿Cual es tu categoria?: ")
+                print(f"{Usuario} ¡Tu categoria {Registro_categoria_03} ha sido ingresado con extio!")
+                Inventario[Registro_categoria_03] = []
+
+            elif Respuesta_categoria_01 == No:
+                print(f"{Usuario} ¡Haz salido de creacion de categorias!")
+                break    
+# ========================================================= #
+
+# FASE 3
+# OBJETIVO: Mostrar categorías registradas.
+
+# 1. Recorrer inventario.
+# 2. Mostrar categorías existentes.
+# 3. Mostrar mensaje si no existen categorías.
+
+# RESULTADO ESPERADO:
+#
+# Categorías registradas:
+#
+# 1. Creatinas
+# 2. Proteínas
+# 3. Vitaminas
+
+    elif Menu == Ver_categorias:
+#       MENU 02 CATEGORIAS #    
+        print("**************************************")
+        print("* ¡Bienvenido al MENU de CATEGORIAS! *")
+        print("**************************************")    
+        print("* 1. Ver categorías existentes       *")  
+        print("* 2. Ver productos de una categoría  *") 
+        print("* 3. Volver                          *")
+        print("**************************************")
+
+#       BUCLE 03 CATEGORIAS #        
+        while True:
+            print("ESTAS VIENDO CATEEGORIAS")
+#           ENTRADA DE MENU CATEGORIAS #
+            Menu_de_categorias = int(input(f"{Usuario} ¿Cual opcion del menu necesitas?: "))
+
+#           CONDICIONALES REVISAR CATEGORIAS #
+            if Menu_de_categorias == Ver_cartegorias_existentes and len(Inventario) == 0:
+                print(f"{Usuario} ¡No has registrado ninguna categoria!")
+                print("¡Dirigete al menu y crea una categoria!")
+                break
+                
+            elif Menu_de_categorias == Ver_cartegorias_existentes and len(Inventario) >= 1:
+                for keys in Inventario.keys():
+                    print(f"{keys}")
+                
+                print("¡estas son todas las categorias!")    
+                print(f"{Usuario} ¿Deseas volver al menu de categorias?: ")
+                print("1. Si")
+                Volver_al_menu_de_categorias = int(input("¡Presiona 1 para volver al menu!: "))   
+
+                if Volver_al_menu_de_categorias == Si:
+                    break
+                        
+            elif Menu_de_categorias == Ver_productos_de_una_categoria:
+#                print("ESTAS EN VER PRODUCTOS POR CATEGORIAS")
+
+# ========================================================= #
+
+# FASE 4
+# OBJETIVO: Agregar productos a una categoría.
+
+# 1. Seleccionar categoría.
+# 2. Pedir nombre del producto.
+# 3. Pedir marca.
+# 4. Pedir precio.
+# 5. Pedir cantidad.
+# 6. Crear diccionario producto.
+# 7. Guardar producto en la categoría.
+
+# RESULTADO ESPERADO:
+#
+# Nombre:
+# Creatina Micronizada
+#
+# Marca:
+# Optimum Nutrition
+#
+# Precio:
+# 103500
+#
+# Cantidad:
+# 20
+#
+# Producto agregado correctamente.
+
+                while True:
+                    print("ESTAS EN VER PRODUCTOS")
+                    categorias = list(Inventario)
+                    for indice, categoria in enumerate(categorias, start= 1):
+                        print(f"{indice}.{categoria}")
+
+                    Respuesta_del_usuario_la_categoria = int(input(f"{Usuario} ¡Selecciona una categoria!: "))
+                    
+                    categoria_seleccionada = categorias[Respuesta_del_usuario_la_categoria - 1]
+
+                    print(f"{Usuario} ¿seleccionaste {categoria_seleccionada}?")
+                    print("1. Si")
+                    print("2. No")
+                        
+                    seleccion_de_confirmacion_categoria = int(input(f"¿Confirmas que vas agregar producto/s en {categoria_seleccionada}?: "))
+
+                    if seleccion_de_confirmacion_categoria == Si:
+                        Nombre = input("¡Ingresa el nombre del producto!: ")
+                        Marca = input("¡Ingresa la marca del producto!: ")
+                        Precio = float(input("¡Ingresa el valor del producto!"))
+                        Cantidad = int(input("¡Ingresa la cantidad disponible del producto!: "))
+                        
+                        Producto["Nombre"] = Nombre
+                        Producto["Marca"] = Marca
+                        Producto["Precio"] = Precio
+                        Producto["Cantidad"] = Cantidad
+                        
+                        Inventario[categoria_seleccionada].append(Producto)
+
+                        for keys, values in Inventario.items():
+                            print(f"{keys} {values}")
+
+                    elif seleccion_de_confirmacion_categoria == No:
+                        print(f"¡Haz salido de creacion del producto!")
+                        break
+                break        
+                        
+                
+            elif Menu_de_categorias == Volver:
+                print(F"¡haz salido de ver categorias")
+                break      
+
+# ========================================================= #            
+    
+    elif Menu == Salir:
+        print("¡Gracias por usar TRON, esperamos disfrutaras tu experiencia!")
+        print("¡Has salido con exito!")
+        break
+
+
+# ========================================================= #
+
+
+# FASE 5
+# OBJETIVO: Mostrar productos de una categoría.
+
+# 1. Mostrar categorías.
+# 2. Elegir categoría.
+# 3. Recorrer productos.
+# 4. Mostrar información de cada producto.
+
+# RESULTADO ESPERADO:
+#
+# CATEGORÍA: CREATINAS
+#
+# Nombre: Creatina Micronizada
+# Marca: Optimum Nutrition
+# Precio: 103500
+# Cantidad: 20
+
+
+# ========================================================= #
