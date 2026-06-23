@@ -1,0 +1,49 @@
+# ---------- ****** ADIVINA EL NÚMERO V5 ****** ---------- #
+
+# OBJETIVO; 
+
+# ADIVINA EL NÚMERO V5
+# ¿Qué tendrá la versión final?
+# Menú principal.
+# Tres niveles de dificultad.
+# Número aleatorio.
+# Sistema de intentos.
+# Estadísticas del jugador.
+# Posibilidad de jugar varias partidas.
+# Salida segura del programa.
+
+# ------ FASE 1 - ESTRUCTURA GENERAL ------ #
+
+# Construir:
+
+# Bienvenida.
+# Menú principal.
+# Opción jugar.
+# Opción estadísticas.
+# Opción salir.
+
+# LIBRERIAS #
+
+import random
+
+# BASE DE DATOS #
+
+
+# Bienvenida #
+def Mostrar_Bienvenida():
+    print("\n", "Bienvenido al juego ¡Adivina el Numero!", "\n")
+Mostrar_Bienvenida()
+
+# MENU #
+def Menu():
+    print("\n")
+    print("¡Bienvenido al Menu!", "\n")
+
+    print("1. Jugar")
+    print("2. Estadisticas")
+    print("3. Salir")
+    print("\n")
+    opciones = int(input("¿Cual es tu opcion?: "))
+    return opciones
+
+Opciones_del_menu = Menu()   
